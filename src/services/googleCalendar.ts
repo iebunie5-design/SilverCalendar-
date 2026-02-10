@@ -39,13 +39,9 @@ export const getTodayEvents = async (accessToken: string) => {
     const calendar = google.calendar({ version: "v3", auth });
 
     const now = new Date();
-    // 한국 시간(KST)으로 현재 날짜 문자열 생성 (YYYY-MM-DD)
-    const kstDateString = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'Asia/Seoul',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-    }).format(now);
+    // 한국 시간(KST)으로 현재 날짜 생성
+    const kstNow = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+    const kstDateString = kstNow.toISOString().split('T')[0];
 
     const startOfDay = `${kstDateString}T00:00:00+09:00`;
     const endOfDay = `${kstDateString}T23:59:59+09:00`;

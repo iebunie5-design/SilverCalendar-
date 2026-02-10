@@ -3,6 +3,9 @@ import { getServerSession } from "next-auth/next";
 import { getTodayEvents } from "@/services/googleCalendar";
 import { authOptions } from "@/lib/auth";
 
+// 데이터를 캐싱하지 않고 항상 새로 가져오도록 강제 설정
+export const dynamic = "force-dynamic";
+
 export async function GET() {
     const session: any = await getServerSession(authOptions);
 
@@ -14,7 +17,7 @@ export async function GET() {
         const events = await getTodayEvents(session.accessToken);
         return NextResponse.json(events);
     } catch (error) {
-        console.error("Fetch Events API Error:", error);
+        console.error("Get Events API Error:", error);
         return NextResponse.json({ error: "일정을 불러오지 못했습니다." }, { status: 500 });
     }
 }
