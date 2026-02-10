@@ -1,0 +1,84 @@
+:root {
+  /* Senior-friendly Color Palette */
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --accent-color: #28a745;
+  --error-color: #dc3545;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+  
+  /* Senior-friendly Typography & Spacing */
+  --font-size-base: 22px;
+  --font-size-large: 32px;
+  --font-size-small: 18px;
+  --button-height: 70px;
+  --border-radius: 16px;
+  --spacing-unit: 16px;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: var(--font-size-large);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  height: var(--button-height);
+  padding: 0 24px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.secondary-button {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--spacing-unit);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-unit);
+}
